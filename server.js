@@ -1,7 +1,7 @@
 // Simple node.js server for making quick requests
 // Code from https://blog.risingstack.com/your-first-node-js-http-server/
 
-const https = require('https')
+const http = require('http')
 const port = 3000
 
 const requestHandler = (request, response) => {
@@ -9,7 +9,7 @@ const requestHandler = (request, response) => {
   response.end('Hello Node.js Server!')
 }
 
-const server = https.createServer(requestHandler)
+const server = http.createServer(requestHandler)
 
 server.listen(port, (err) => {
   if (err) {
