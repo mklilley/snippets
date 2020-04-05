@@ -9,7 +9,7 @@ const requestHandler = (request, response) => {
   response.end('Hello Node.js Server!')
 }
 
-const server = http.createServer(requestHandler)
+const server = https.createServer(requestHandler)
 
 server.listen(port, (err) => {
   if (err) {
