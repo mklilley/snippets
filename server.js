@@ -1,12 +1,30 @@
-// Simple node.js server for making quick requests
-// Code from https://blog.risingstack.com/your-first-node-js-http-server/
+// Simple node.js server for receiving JSON requsts
+// Code from:
+// https://blog.risingstack.com/your-first-node-js-http-server/
+// https://nodejs.dev/get-http-request-body-data-using-nodejs
 
 const http = require('http')
 const port = 3000
 
+
 const requestHandler = (request, response) => {
-  console.log(request.url)
-  response.end('Hello Node.js Server!')
+
+  let data = []
+
+  request.on('data', chunk => {
+    data.push(chunk)
+  })
+
+  request.on('end', () => {
+    try {
+      console.log(JSON.parse(data))
+    }
+    catch(error) {
+      console.log("ERROR: Requst body not JSON")
+    }
+  })
+
+  response.end("Success")
 }
 
 const server = http.createServer(requestHandler)
