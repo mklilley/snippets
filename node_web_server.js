@@ -1,6 +1,7 @@
 // Simple node.js web server
 // Code from:
 // http://stackoverflow.com/questions/16333790/node-js-quick-file-server-static-files-over-http
+// See also https://developer.mozilla.org/en-US/docs/Learn/Server-side/Node_server_without_framework
 
 var http = require("http");
 var fs = require("fs");
