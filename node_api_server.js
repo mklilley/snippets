@@ -17,7 +17,7 @@ const requestHandler = (request, response) => {
     try {
       console.log(JSON.parse(data));
     } catch (error) {
-      console.log("ERROR: Requst body not JSON");
+      console.log("ERROR: Request body not JSON");
     }
   });
 
